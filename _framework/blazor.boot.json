@@ -1,9 +1,9 @@
 {
   "mainAssemblyName": "GitHubPagesDemo",
   "resources": {
-    "hash": "sha256-Prh7nIqGhAgXHx3Ff84UzlJOqKpLg3nsbgRa+Pk+WSA=",
+    "hash": "sha256-I1wPq1MPaOBAy+I80+SRv6Jhk7LqutMqsTFOXEoQ17g=",
     "fingerprinting": {
-      "GitHubPagesDemo.84ixjdlms0.wasm": "GitHubPagesDemo.wasm",
+      "GitHubPagesDemo.k3smv9rj1z.wasm": "GitHubPagesDemo.wasm",
       "Microsoft.AspNetCore.Components.lezzvpu441.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.vn7cjv3pw5.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.xln8yuupwa.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
@@ -64,7 +64,7 @@
       "System.Runtime.InteropServices.JavaScript.4wymnd9fjf.wasm": "sha256-3IoLyXDPZlSSNuf0cCFYH/6pnHsiIz+bg/ptKuGnMiI="
     },
     "assembly": {
-      "GitHubPagesDemo.84ixjdlms0.wasm": "sha256-+PBav1H/TkB1OazikdweDPWnPL4DZg9sfLPd1XkRCeg=",
+      "GitHubPagesDemo.k3smv9rj1z.wasm": "sha256-wOqcxdzQ9o0N7szLZApFxEQwW/zmYwkzkyRJLGK1+XQ=",
       "Microsoft.AspNetCore.Components.lezzvpu441.wasm": "sha256-/QATnKONpgpVoMtuNUQQjqGQwJ6laTK/xQyRa5+4xgo=",
       "Microsoft.AspNetCore.Components.Web.vn7cjv3pw5.wasm": "sha256-NQ/RpCjN76eu/ZxSmY0ZmTfatuK4pRsBZt0ODNBRC08=",
       "Microsoft.AspNetCore.Components.WebAssembly.xln8yuupwa.wasm": "sha256-exwz0OlsISDBCM1vOX5SjAuEg48fmxLmE6mLtJjxmKQ=",
