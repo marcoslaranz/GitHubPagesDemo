@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Install libssl
+        run: sudo apt-get update && sudo apt-get install -y libssl-dev
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      # 🛠 Publishing your root-level project
+      - name: Publish Blazor Project
+        run: dotnet publish GitHubPagesDemo.csproj -c Release -o release --nologo
+
+      - name: Update <base> tag in index.html
+        run: |
+          sed -i 's|<base href="/" />|<base href="/GitHubPagesDemo/" />|g' release/wwwroot/index.html
+
+      - name: Add fallback page
+        run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+      - name: Add .nojekyll
+        run: touch release/wwwroot/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: release/wwwroot
+          token: ${{ secrets.GITHUB_TOKEN }}
