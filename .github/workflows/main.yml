@@ -8,21 +8,17 @@ jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
     steps:
-      # 🔐 Ensure OpenSSL is available for .NET on Linux
       - name: Install libssl
         run: sudo apt-get update && sudo apt-get install -y libssl-dev
 
-      # 📥 Checkout your repo
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # ⚙️ Setup .NET 9 SDK
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
 
-      # 📦 Optional: Cache NuGet packages for faster builds
       - name: Cache NuGet packages
         uses: actions/cache@v3
         with:
@@ -31,24 +27,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      # 🚀 Publish the Blazor project
-      - name: Publish project
-        run: dotnet publish YourProjectFolder/YourProject.csproj -c Release -o release --nologo
+      # 🛠 Publishing your root-level project
+      - name: Publish Blazor Project
+        run: dotnet publish GitHubPagesDemo.csproj -c Release -o release --nologo
 
-      # 🛠 Update base href to match GitHub Pages repo path
       - name: Update <base> tag in index.html
         run: |
           sed -i 's|<base href="/" />|<base href="/GitHubPagesDemo/" />|g' release/wwwroot/index.html
 
-      # 🧭 Redirect 404s to index.html for SPA routing
       - name: Add fallback page
         run: cp release/wwwroot/index.html release/wwwroot/404.html
 
-      # 📁 Add .nojekyll to allow underscore folders
       - name: Add .nojekyll
         run: touch release/wwwroot/.nojekyll
 
-      # 🌐 Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
