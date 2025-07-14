@@ -4,6 +4,20 @@ This guide explains how to deploy a Blazor WebAssembly (WASM) application to Git
 
 ---
 
+## 📚 References & Copyright
+
+### 🎥 Source Video  
+This document was inspired by the YouTube video:  
+**[How to Deploy Blazor WebAssembly to GitHub Pages](https://www.youtube.com/watch?v=nNxII6jvPvQ)**  
+by **Swimburger**
+
+### 📖 Official Documentation  
+- [GitHub Pages Overview](https://pages.github.com/)  
+- [Creating a GitHub Pages Site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+- ---
+
+
 ## Table of Contents
 
 - [Deploying a Blazor WASM Application to GitHub Pages](#deploying-a-blazor-wasm-application-to-github-pages)
